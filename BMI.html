@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator</title>
+</head>
+<body style="text-align: center;background-color: blue;">
+  <h1 style="background-color: yellowgreen;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">BMI Calculator</h1>
+  <image src="body-mass-index-formula.jpg" width="300"></image><br><br>
+  <h4 style="background-color: white;">Weight<br></h4>
+  <input type="text" id="weight" placeholder="Weight (in kg)"><br><br>
+  <h4 style="background-color: white;">Height<br></h4>
+  <input type="text" id="height" placeholder="Height (in cm)"><br><br>
+  <button onclick="calculateBMI()">Calculate BMI</button>
+  <p id="result"></p>
+</body>
+<script>
+function calculateBMI() {
+  // Get the height and weight from the user input
+  var height = document.getElementById("height").value;
+  var weight = document.getElementById("weight").value;
+
+  // Validate the input
+  if (isNaN(height) || isNaN(weight)) {
+    alert("Please enter a valid height and weight.");
+    return;
+  }
+
+  // Calculate the BMI
+  var bmi = weight / (height * height / 10000);
+
+  // Display the result
+  document.getElementById("result").innerHTML = "Your BMI is " + bmi;
+}
+</script>
+</html>
